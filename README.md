@@ -15,6 +15,12 @@ This repository collects notes and proof-of-concept (PoC) materials used to repr
   - Write-up: `D-Link_DI_7400G+_Command_Injection/DI_7400G+_command_injection.md`
   - Notes: command injection via `/msp_info.htm` (see write-up for details)
 
+### Tenda AC20
+
+- **AC20 Buffer Overflow**
+  - Write-up: `Tenda AC20_Buffer_Overflow/Tenda AC20_Buffer_Overflow.md`
+  - Notes: buffer overflow via `/goform/PowerSaveSet`
+
 ## Repository Layout
 
 - `CVE-2025-57105_Command_Injection/`
@@ -22,6 +28,9 @@ This repository collects notes and proof-of-concept (PoC) materials used to repr
   - `images/`
 - `D-Link_DI_7400G+_Command_Injection/`
   - `DI_7400G+_command_injection.md`
+  - `images/`
+- `Tenda AC20_Buffer_Overflow/`
+  - `Tenda AC20_Buffer_Overflow.md`
   - `images/`
 
 ## Quick Start

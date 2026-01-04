@@ -14,7 +14,7 @@
 
 # Overview
 
-A buffer overflow vulnerability was discovered on the latest version of the Tengda AC20 router,  V16.03.08.12, where an attacker sent a carefully constructed http post packet to the request path /goform/PowerSaveSettriggered, resulting in a denial of service attack or even RCE, specifically through the function sscanf(s, "%[^:]:%[^-]-%[^:]:%s", v7, v8, v9, v10); implemented, because there is no boundary check on the s
+A buffer overflow vulnerability was discovered on the latest version of the Tengda AC20 router,  V16.03.08.12, where an attacker sent a carefully constructed http post packet to the request path `/goform/PowerSaveSet` triggered, resulting in a denial of service attack or even RCE, specifically through the function sscanf(s, "%[^:]:%[^-]-%[^:]:%s", v7, v8, v9, v10); implemented, because there is no boundary check on the s
 
 # Vulnerability details
 

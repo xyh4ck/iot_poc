@@ -28,11 +28,11 @@ When the powerSavingEn, time, powerSaveDelay, and ledCloseType values are not em
 
 ```
 POST /goform/PowerSaveSet HTTP/1.1
-Host: 192.168.102.145
+Host: 192.168.0.1
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
 Accept: text/plain, */*; q=0.01
 X-Requested-With: XMLHttpRequest
-Referer: http://192.168.102.145/main.html
+Referer: http://192.168.0.1/main.html
 Accept-Encoding: gzip, deflate, br
 Accept-Language: zh-CN,zh;q=0.9
 Connection: keep-alive

@@ -7,18 +7,24 @@ This repository collects notes and proof-of-concept (PoC) materials used to repr
 
 ### D-Link DI-7400G+
 
-- **CVE-2025-57105 Command Injection**
+- **DI_7400G+ Command Injection** (CVE-2025-57105)
   - Write-up: `CVE-2025-57105_Command_Injection/CVE-2025-57105 Command Injection.md`
   - Notes: command injection via `mng_platform.asp` / `wayos_ac_server.asp` (see write-up for prerequisites and verification steps)
 
-- **DI_7400G+ msp_info.htm Command Injection**
+- **DI_7400G+ msp_info.htm Command Injection**  (CVE-2025-15357)
   - Write-up: `D-Link_DI_7400G+_Command_Injection/DI_7400G+_command_injection.md`
   - Notes: command injection via `/msp_info.htm` (see write-up for details)
 
-### Tenda AC20
+### Tenda AC20 (CVE-2025-15356)
 
 - **AC20 Buffer Overflow**
   - Write-up: `Tenda AC20_Buffer_Overflow/Tenda AC20_Buffer_Overflow.md`
+  - Notes: buffer overflow via `/goform/PowerSaveSet`
+
+### Tenda AC23
+
+- **AC23 Buffer Overflow**
+  - Write-up: `Tenda AC23_Buffer_Overflow/Tenda AC23_Buffer_Overflow.md`
   - Notes: buffer overflow via `/goform/PowerSaveSet`
 
 ## Repository Layout
@@ -32,7 +38,9 @@ This repository collects notes and proof-of-concept (PoC) materials used to repr
 - `Tenda AC20_Buffer_Overflow/`
   - `Tenda AC20_Buffer_Overflow.md`
   - `images/`
-
+- `Tenda AC23_Buffer_Overflow/`
+  - `Tenda AC23_Buffer_Overflow.md`
+  - `images/`
 ## Quick Start
 
 - Open the corresponding write-up under each directory.

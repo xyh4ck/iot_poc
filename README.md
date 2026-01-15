@@ -27,6 +27,15 @@ This repository collects notes and proof-of-concept (PoC) materials used to repr
   - Write-up: `Tenda AC23_Buffer_Overflow/Tenda AC23_Buffer_Overflow.md`
   - Notes: buffer overflow via `/goform/PowerSaveSet`
 
+### TOTOLINK
+- **A7000R RCE**
+  - Write-up: `TOTOLINK A7000R/01_setUnloadUserData_RCE.md`
+  - Notes: command injection via `/cgi-bin/cstecgi.cgi`
+
+- **A7000R RCE**
+  - Write-up: `TOTOLINK A7000R/02_CloudACMunualUpdateUserdata_RCE.md`
+  - Notes: command injection via `/cgi-bin/cstecgi.cgi`
+
 ## Repository Layout
 
 - `CVE-2025-57105_Command_Injection/`
@@ -41,6 +50,11 @@ This repository collects notes and proof-of-concept (PoC) materials used to repr
 - `Tenda AC23_Buffer_Overflow/`
   - `Tenda AC23_Buffer_Overflow.md`
   - `images/`
+- `TOTOLINK A7000R/`
+  - `01_setUnloadUserData_RCE.md`
+  - `02_CloudACMunualUpdateUserdata_RCE.md`
+  - `images/`
+
 ## Quick Start
 
 - Open the corresponding write-up under each directory.

@@ -14,7 +14,7 @@
 
 ## Overview
 
-A validation command execution vulnerability was discovered in D-Link's related product DI_7400G+, which can be exploited by attackers by sending malicious HTTP GET packets to cause arbitrary command execution, which can be triggered when the request path is /msp_info.htm
+A validation command execution vulnerability was discovered in D-Link's related product DI_7400G+, which can be exploited by attackers by sending malicious HTTP GET packets to cause arbitrary command execution, which can be triggered when the request path is `/msp_info.htm`
 
 ## Vulnerability details
 
@@ -22,7 +22,7 @@ The API for invoking the function
 
 ![alt text](./images/image-1.png)
 
-Locate to the function msp_info_htm, and the function takes values for flag and iface
+Locate to the function `msp_info_htm`, and the function takes values for flag and iface
 
 ![alt text](./images/image-2.png)
 

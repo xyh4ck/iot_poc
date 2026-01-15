@@ -5,61 +5,42 @@ This repository collects notes and proof-of-concept (PoC) materials used to repr
 
 ## Contents
 
-### D-Link DI-7400G+
+### D-Link
+#### DI_7400G+
+- **01 Command Injection mng_platform** (CVE-2025-57105)
+  - Write-up: `D-Link/DI_7400G+/01_Command_Injection_mng_platform/README.md`
+  - Notes: command injection via `mng_platform.asp` / `wayos_ac_server.asp`
 
-- **DI_7400G+ Command Injection** (CVE-2025-57105)
-  - Write-up: `CVE-2025-57105_Command_Injection/CVE-2025-57105 Command Injection.md`
-  - Notes: command injection via `mng_platform.asp` / `wayos_ac_server.asp` (see write-up for prerequisites and verification steps)
+- **02 Command Injection msp_info_htm**  (CVE-2025-15357)
+  - Write-up: `D-Link/DI_7400G+/02_Command_Injection_msp_info_htm/README.md`
+  - Notes: command injection via `/msp_info.htm`
 
-- **DI_7400G+ msp_info.htm Command Injection**  (CVE-2025-15357)
-  - Write-up: `D-Link_DI_7400G+_Command_Injection/DI_7400G+_command_injection.md`
-  - Notes: command injection via `/msp_info.htm` (see write-up for details)
+### Tenda
+#### AC20
 
-### Tenda AC20 (CVE-2025-15356)
-
-- **AC20 Buffer Overflow**
-  - Write-up: `Tenda AC20_Buffer_Overflow/Tenda AC20_Buffer_Overflow.md`
+- **01 Buffer Overflow PowerSaveSet** (CVE-2025-15356)
+  - Write-up: `Tenda/AC20/01_Buffer_Overflow_PowerSaveSet/README.md`
   - Notes: buffer overflow via `/goform/PowerSaveSet`
 
-### Tenda AC23
+#### AC23
 
-- **AC23 Buffer Overflow**
-  - Write-up: `Tenda AC23_Buffer_Overflow/Tenda AC23_Buffer_Overflow.md`
+- **01 Buffer Overflow PowerSaveSet**
+  - Write-up: `Tenda/AC23/01_Buffer_Overflow_PowerSaveSet/README.md`
   - Notes: buffer overflow via `/goform/PowerSaveSet`
 
-### TOTOLINK
-- **A7000R RCE**
-  - Write-up: `TOTOLINK A7000R/01_setUnloadUserData_RCE.md`
+- **02 Buffer Overflow WifiExtraSet**
+  - Write-up: `Tenda AC23_Buffer_Overflow_WifiSet/Tenda AC23_Buffer_Overflow_WifiExtraSet.md`
+  - Notes: buffer overflow via `/goform/WifiExtraSet`
+
+#### A7000R
+
+- **01 setUnloadUserData RCE**
+  - Write-up: `TOTOLINK/A7000R/01_setUnloadUserData_RCE.md`
   - Notes: command injection via `/cgi-bin/cstecgi.cgi`
 
-- **A7000R RCE**
-  - Write-up: `TOTOLINK A7000R/02_CloudACMunualUpdateUserdata_RCE.md`
+- **02 CloudACMunualUpdateUserdata RCE**
+  - Write-up: `TOTOLINK/A7000R/02_CloudACMunualUpdateUserdata_RCE.md`
   - Notes: command injection via `/cgi-bin/cstecgi.cgi`
-
-## Repository Layout
-
-- `CVE-2025-57105_Command_Injection/`
-  - `CVE-2025-57105 Command Injection.md`
-  - `images/`
-- `D-Link_DI_7400G+_Command_Injection/`
-  - `DI_7400G+_command_injection.md`
-  - `images/`
-- `Tenda AC20_Buffer_Overflow/`
-  - `Tenda AC20_Buffer_Overflow.md`
-  - `images/`
-- `Tenda AC23_Buffer_Overflow/`
-  - `Tenda AC23_Buffer_Overflow.md`
-  - `images/`
-- `TOTOLINK A7000R/`
-  - `01_setUnloadUserData_RCE.md`
-  - `02_CloudACMunualUpdateUserdata_RCE.md`
-  - `images/`
-
-## Quick Start
-
-- Open the corresponding write-up under each directory.
-- Follow the verification steps in the document.
-- If emulation is required, the write-ups may reference tools such as FirmAE.
 
 ## Disclaimer
 
@@ -68,4 +49,3 @@ This repository is intended for **authorized security research and educational p
 - Do not test against systems you do not own or do not have explicit permission to assess.
 - You are responsible for complying with applicable laws and regulations.
 - The author(s) assume no liability for any misuse or damage.
-

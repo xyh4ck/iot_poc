@@ -22,7 +22,7 @@ The logic related to the `setUnloadUserData` function is registered here
 
 ![image-20260115112646802](images/image-20260115112646802.png)
 
-It can be seen that the plugin_name is valued, and then the system is finally executed through command splicing to achieve command execution
+It can be seen that the `plugin_name` is valued, and then the system is finally executed through command splicing to achieve command execution
 
 ![image-20260115112733538](images/image-20260115112733538.png)
 

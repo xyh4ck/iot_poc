@@ -22,7 +22,7 @@ You can see the `CloudACMunualUpdateUserdata` handler here
 
 ![image-20260115113227369](images/image-20260115113227369.png)
 
-Here, the URL is valued, and then spliced into the system function for command execution
+Here, the `URL` is valued, and then spliced into the system function for command execution
 
 ![image-20260115113410288](images/image-20260115113410288.png)
 

@@ -29,7 +29,7 @@ This repository collects notes and proof-of-concept (PoC) materials used to repr
   - Notes: buffer overflow via `/goform/PowerSaveSet`
 
 - **02 Buffer Overflow WifiExtraSet**
-  - Write-up: `Tenda AC23_Buffer_Overflow_WifiSet/Tenda AC23_Buffer_Overflow_WifiExtraSet.md`
+  - Write-up: `Tenda/AC23/02_Buffer_Overflow_WifiExtraSet/README.md`
   - Notes: buffer overflow via `/goform/WifiExtraSet`
 
 #### A7000R

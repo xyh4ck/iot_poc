@@ -24,22 +24,36 @@ This repository collects notes and proof-of-concept (PoC) materials used to repr
 
 #### AC23
 
-- **01 Buffer Overflow PowerSaveSet**
+- **01 Buffer Overflow PowerSaveSet** (CVE-2026-0640)
   - Write-up: `Tenda/AC23/01_Buffer_Overflow_PowerSaveSet/README.md`
   - Notes: buffer overflow via `/goform/PowerSaveSet`
 
-- **02 Buffer Overflow WifiExtraSet**
+- **02 Buffer Overflow WifiExtraSet** (CVE-2026-1420)
   - Write-up: `Tenda/AC23/02_Buffer_Overflow_WifiExtraSet/README.md`
   - Notes: buffer overflow via `/goform/WifiExtraSet`
 
 #### A7000R
 
-- **01 setUnloadUserData RCE**
+- **01 setUnloadUserData RCE** (CVE-2026-1547)
   - Write-up: `TOTOLINK/A7000R/01_setUnloadUserData_RCE.md`
   - Notes: command injection via `/cgi-bin/cstecgi.cgi`
 
-- **02 CloudACMunualUpdateUserdata RCE**
+- **02 CloudACMunualUpdateUserdata RCE** (CVE-2026-1548)
   - Write-up: `TOTOLINK/A7000R/02_CloudACMunualUpdateUserdata_RCE.md`
+  - Notes: command injection via `/cgi-bin/cstecgi.cgi`
+
+- **03 setUploadUserData RCE** (CVE-2026-1601)
+  - Write-up: `TOTOLINK/A7000R/03_setUploadUserData_RCE.md`
+  - Notes: command injection via `/cgi-bin/cstecgi.cgi`
+
+- **04 setUpgradeFW RCE** (CVE-2026-1623)
+  - Write-up: `TOTOLINK/A7000R/04_setUpgradeFW_RCE.md`
+  - Notes: command injection via `/cgi-bin/cstecgi.cgi`
+
+#### N300RHv4
+
+- **01 setWebWlanIdx RCE**
+  - Write-up: `TOTOLINK/N300RHv4/01_setWebWlanIdx_RCE.md`
   - Notes: command injection via `/cgi-bin/cstecgi.cgi`
 
 ## Disclaimer

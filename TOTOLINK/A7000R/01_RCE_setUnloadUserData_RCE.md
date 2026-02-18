@@ -1,7 +1,5 @@
 # Information
 
-
-
 **Vendor of the products:** TOTOLINK
 
 **Vendor's website:** [TOTOLINK](https://www.totolink.net/)

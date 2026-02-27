@@ -52,7 +52,7 @@ This repository collects notes and proof-of-concept (PoC) materials used to repr
 
 #### N300RHv4
 
-- **01 setWebWlanIdx RCE**
+- **01 setWebWlanIdx RCE** (CVE-2026-3301)
   - Write-up: `TOTOLINK/N300RHv4/01_setWebWlanIdx_RCE.md`
   - Notes: command injection via `/cgi-bin/cstecgi.cgi`
 

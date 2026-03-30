@@ -50,6 +50,12 @@ This repository collects notes and proof-of-concept (PoC) materials used to repr
   - Write-up: `TOTOLINK/A7000R/04_setUpgradeFW_RCE.md`
   - Notes: command injection via `/cgi-bin/cstecgi.cgi`
 
+#### A800R
+
+- **01 Buffer Overflow setAppEasyWizardConfig**
+  - Write-up: `TOTOLINK/A800R/01_Buffer_Overflow_setAppEasyWizardConfig.md`
+  - Notes: buffer overflow via `/cgi-bin/cstecgi.cgi`
+
 #### N300RHv4
 
 - **01 setWebWlanIdx RCE** (CVE-2026-3301)

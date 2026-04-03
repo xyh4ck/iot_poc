@@ -32,6 +32,14 @@ This repository collects notes and proof-of-concept (PoC) materials used to repr
   - Write-up: `Tenda/AC23/02_Buffer_Overflow_WifiExtraSet/README.md`
   - Notes: buffer overflow via `/goform/WifiExtraSet`
 
+#### HG10
+
+- **01 Buffer Overflow nextHop**
+  - Write-up: `Tenda/HG10/01_Buffer_Overflow_nextHop/README.md`
+  - Notes: buffer overflow via `/boaform/formRouting`
+
+### Totolink
+
 #### A7000R
 
 - **01 setUnloadUserData RCE** (CVE-2026-1547)

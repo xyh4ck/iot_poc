@@ -56,6 +56,11 @@ This repository collects notes and proof-of-concept (PoC) materials used to repr
   - Write-up: `TOTOLINK/N300RHv4/01_setWebWlanIdx_RCE.md`
   - Notes: command injection via `/cgi-bin/cstecgi.cgi`
 
+- **02 setUpgradeUboot RCE**
+  - Write-up: `TOTOLINK/N300RHv4/02_setUpgradeUboot_RCE.md`
+  - Notes: command injection via `/cgi-bin/cstecgi.cgi`
+
+
 ## Disclaimer
 
 This repository is intended for **authorized security research and educational purposes only**.

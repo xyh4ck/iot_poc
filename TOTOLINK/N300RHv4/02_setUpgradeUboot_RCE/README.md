@@ -5,13 +5,11 @@
 **Title:**   
 TOTOLINK N300RH V4 Unauthenticated OS Command Injection via `upgrade.so` `setUpgradeUboot` `FileName` Parameter
 
-**Vendor:**   
-TOTOLINK
+**Vendor:** TOTOLINK
 
-**Product:**   
-TOTOLINK N300RH V4 Wireless Router
+**Product:** TOTOLINK N300RH V4 Wireless Router
 
-**Vulnerability Type:**  Command Injection (CWE‑78)
+**Vulnerability Type:** Command Injection (CWE‑78)
 
 **Impact:**   
 Remote, unauthenticated OS command execution as root via the web management interface.

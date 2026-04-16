@@ -60,7 +60,7 @@ This repository collects notes and proof-of-concept (PoC) materials used to repr
 
 #### A800R
 
-- **01 Buffer Overflow setAppEasyWizardConfig**
+- **01 Buffer Overflow setAppEasyWizardConfig** (CVE-2026-6157)
   - Write-up: `TOTOLINK/A800R/01_Buffer_Overflow_setAppEasyWizardConfig.md`
   - Notes: buffer overflow via `/cgi-bin/cstecgi.cgi`
 
@@ -74,9 +74,13 @@ This repository collects notes and proof-of-concept (PoC) materials used to repr
   - Write-up: `TOTOLINK/N300RHv4/01_setWebWlanIdx_RCE.md`
   - Notes: command injection via `/cgi-bin/cstecgi.cgi`
 
-- **02 setUpgradeUboot RCE**
+- **02 setUpgradeUboot RCE** (CVE-2026-6158)
   - Write-up: `TOTOLINK/N300RHv4/02_setUpgradeUboot_RCE.md`
   - Notes: command injection via `/cgi-bin/cstecgi.cgi`
+
+- **03 setUploadSetting ECFNP**
+  - Write-up: `TOTOLINK/N300RHv4/03_setUploadSetting_ECFNP.md`
+  - Notes: external control of file name or path via `/cgi-bin/cstecgi.cgi`
 
 
 ## Disclaimer

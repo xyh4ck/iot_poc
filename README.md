@@ -34,7 +34,7 @@ This repository collects notes and proof-of-concept (PoC) materials used to repr
 
 #### HG10
 
-- **01 Buffer Overflow nextHop**
+- **01 Buffer Overflow nextHop** (CVE-2026-6988)
   - Write-up: `Tenda/HG10/01_Buffer_Overflow_nextHop/README.md`
   - Notes: buffer overflow via `/boaform/formRouting`
 
@@ -64,7 +64,7 @@ This repository collects notes and proof-of-concept (PoC) materials used to repr
   - Write-up: `TOTOLINK/A800R/01_Buffer_Overflow_setAppEasyWizardConfig.md`
   - Notes: buffer overflow via `/cgi-bin/cstecgi.cgi`
 
-- **02 Buffer Overflow setWiFiMultipleConfig**
+- **02 Buffer Overflow setWiFiMultipleConfig** (CVE-2026-7503)
   - Write-up: `TOTOLINK/A800R/02_Buffer_Overflow_setWiFiMultipleConfig.md`
   - Notes: buffer overflow via `/cgi-bin/cstecgi.cgi`
 
@@ -78,7 +78,7 @@ This repository collects notes and proof-of-concept (PoC) materials used to repr
   - Write-up: `TOTOLINK/N300RHv4/02_setUpgradeUboot_RCE.md`
   - Notes: command injection via `/cgi-bin/cstecgi.cgi`
 
-- **03 setUploadSetting ECFNP**
+- **03 setUploadSetting ECFNP** (CVE-2026-7633)
   - Write-up: `TOTOLINK/N300RHv4/03_setUploadSetting_ECFNP.md`
   - Notes: external control of file name or path via `/cgi-bin/cstecgi.cgi`
 
